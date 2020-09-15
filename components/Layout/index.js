@@ -1,10 +1,13 @@
 import React from 'react';
 
-import styles from '../../styles/layout.module.css';
+// import styles from '../../styles/Layout.module.css';
+import * as S from './styled';
 
 const Layout = ({ children }) => {
   return (
-    <div className={styles.wrapper}>{children}</div>
+    <S.Wrapper>
+      {children}
+    </S.Wrapper>
   )
 }
 
