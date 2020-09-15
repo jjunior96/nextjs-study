@@ -1,12 +1,13 @@
 import React from 'react';
 
-// import styles from '../../styles/Layout.module.css';
+import LogoVercel from '../../public/vercel.svg';
 import * as S from './styled';
 
 const Layout = ({ children }) => {
   return (
     <S.Wrapper>
       {children}
+      <LogoVercel />
     </S.Wrapper>
   )
 }
