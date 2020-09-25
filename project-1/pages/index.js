@@ -1,189 +1,311 @@
-import { Breadcrumb, Icon, Row, Col, Layout, Card, Carousel } from "antd";
-import Link from "next/link";
-import "../styles/styles.less";
-const { Header, Content } = Layout;
-export default () => (
-  <Layout>
-    <Header>
-      <Row justify='space-around' type='flex'>
-        <Col span={20}>
-          <Row justify='space-around' type='flex'>
-            <Col span={12} md={12} xs={24}>
-              <span style={{ color: "#fff" }}>Welcome to ABC Burger</span>
-            </Col>
-            <Col span={12} md={12} xs={0}>
-              <span className='ml-30 float-right' style={{ color: "#fff" }}>
-                <Icon type='phone' theme='filled' /> Call us 09-999-9999
-              </span>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    </Header>
-    <Row justify='space-around' type='flex'>
-      <Col
-        span={20}
-        style={{
-          textAlign: "right",
-          height: 50,
-          display: "flex",
-          justifyContent: "flex-end",
-          textTransform: "uppercase",
-        }}
-      >
-        <div style={{ width: "fit-content", margin: "auto 0px" }}>
-          <Link href='/'>
-            <a>Home</a>
-          </Link>
-        </div>
-        <div style={{ width: "fit-content", margin: "auto 0px" }}>
-          <Link href='/'>
-            <a>Product</a>
-          </Link>
-        </div>
-        <div style={{ width: "fit-content", margin: "auto 0px" }}>
-          <Link href='/'>
-            <a>About us</a>
-          </Link>
-        </div>
-      </Col>
-    </Row>
-    <Row justify='space-around' type='flex'>
-      <Col span={20}>
-        <Breadcrumb>
-          <Breadcrumb.Item href=''>
-            <Icon type='home' />
-          </Breadcrumb.Item>
-          <Breadcrumb.Item href=''>
-            <Icon type='user' />
-            <span>Home</span>
-          </Breadcrumb.Item>
-        </Breadcrumb>
-      </Col>
-    </Row>
-    <Row justify='space-around' type='flex'>
-      <Col
-        span={20}
-        style={{
-          paddingTop: "30px",
-          paddingBottom: "30px",
-          minHeight: "500px",
-        }}
-      >
-        <Content>
-          <div>
-            <Carousel autoplay>
-              <div>
-                <h3>
-                  <img src='/static/images/big-images.jpg' />
-                </h3>
-              </div>
-              <div>
-                <h3>
-                  <img src='/static/images/big-images-2.jpg' />
-                </h3>
-              </div>
-              <div>
-                <h3>
-                  <img src='/static/images/big-images-3.jpg' />
-                </h3>
-              </div>
-            </Carousel>
-          </div>
-          <Row gutter={16}>
-            <Col span={6} md={6} sm={12} xs={24}>
-              <Card
-                hoverable
-                cover={
-                  <img
-                    alt='image1'
-                    style={{ width: "100%" }}
-                    src='/static/images/burger1.jpg'
-                  />
-                }
-              >
-                <Card.Meta
-                  title='Menu 1'
-                  description='burger with patty and cheese'
-                />
-              </Card>
-            </Col>
-            <Col span={6} md={6} sm={12} xs={24}>
-              <Card
-                hoverable
-                cover={
-                  <img
-                    alt='image2'
-                    style={{ width: "100%" }}
-                    src='../static/images/burger2.jpg'
-                  />
-                }
-              >
-                <Card.Meta
-                  title='Menu 2'
-                  description='burger on white ceramic plate'
-                />
-              </Card>
-            </Col>
-            <Col span={6} md={6} sm={12} xs={24}>
-              <Card
-                hoverable
-                cover={
-                  <img
-                    alt='image3'
-                    style={{ width: "100%" }}
-                    src='/static/images/burger3.jpg'
-                  />
-                }
-              >
-                <Card.Meta
-                  title='Menu 3'
-                  description='burger with tomato and onion'
-                />
-              </Card>
-            </Col>
-            <Col span={6} md={6} sm={12} xs={24}>
-              <Card
-                hoverable
-                cover={
-                  <img
-                    alt='image4'
-                    style={{ width: "100%" }}
-                    src='/static/images/burger4.jpg'
-                  />
-                }
-              >
-                <Card.Meta
-                  title='Menu 4'
-                  description='burger with vegetables'
-                />
-              </Card>
-            </Col>
-          </Row>
-        </Content>
-      </Col>
-    </Row>
-    <Row justify='space-around' type='flex' style={{ background: "#f9f9f9" }}>
-      <Col md={8} xs={20} style={{ height: "40px", display: "flex" }}>
-        <div style={{ margin: "auto 0px" }}>&copy; 2019 nextjs antd now.sh</div>
-      </Col>
-      <Col md={8} xs={20}>
-        <div
-          style={{
-            margin: "auto",
-            height: "40px",
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
+// import { Component } from 'react';
+// import { Table, Tag, Radio, Space, Menu, Dropdown, Icon, Button , Modal } from 'antd';
+// import { Link } from 'next/link';
+
+// const columns = [
+//   {
+//     title: 'Name',
+//     dataIndex: 'name',
+//     key: 'name',
+//     render: text => <a>{text}</a>,
+//   },
+//   {
+//     title: 'Age',
+//     dataIndex: 'age',
+//     key: 'age',
+//   },
+//   {
+//     title: 'Address',
+//     dataIndex: 'address',
+//     key: 'address',
+//   },
+//   {
+//     title: 'Tags',
+//     key: 'tags',
+//     dataIndex: 'tags',
+//     render: tags => (
+//       <span>
+//         {tags.map(tag => {
+//           let color = tag.length > 5 ? 'geekblue' : 'green';
+//           if (tag === 'loser') {
+//             color = 'volcano';
+//           }
+//           return (
+//             <Tag color={color} key={tag}>
+//               {tag.toUpperCase()}
+//             </Tag>
+//           );
+//         })}
+//       </span>
+//     ),
+//   },
+//   {
+//     title: 'Action',
+//     key: 'action',
+//     fixed: 'right',
+//     render: (text, record) => {      
+//       const menu = (
+//         <Menu>
+//           <Menu.Item onClick={ () => console.log("Teste") } >
+//             Ver detalhes
+//           </Menu.Item>
+//         </Menu>
+//       );
+
+//       return (
+//         <Dropdown overlay={menu} >
+//           <Button size="small" >
+//             Ações
+//             <Modal>
+//               Teste
+//             </Modal>
+//           </Button>
+//         </Dropdown>
+//       )
+//     },
+//   },
+// ];
+
+// const data = [
+//   {
+//     key: '1',
+//     name: 'John Brown',
+//     age: 32,
+//     address: 'New York No. 1 Lake Park',
+//     tags: ['nice', 'developer'],
+//   },
+//   {
+//     key: '2',
+//     name: 'Jim Green',
+//     age: 42,
+//     address: 'London No. 1 Lake Park',
+//     tags: ['loser', 'nice', 'dev', ],
+//   },
+//   {
+//     key: '3',
+//     name: 'Joe Black',
+//     age: 32,
+//     address: 'Sidney No. 1 Lake Park',
+//     tags: ['cool', 'teacher'],
+//   },
+// ];
+
+// export default class Demo extends Component {
+//   state = {
+//     top: 'topLeft',
+//     bottom: 'bottomRight',
+//     visible: false,
+//   };
+
+//   showModal = () => {
+//     this.setState({ visible: true });
+//   }
+
+//   handleOk = e => {
+//     this.setState({ visible: false });
+//   }
+
+//   render() {
+//     return (
+//       <>
+//         <Table
+//           columns={columns}
+//           pagination={{ position: [this.state.top, this.state.bottom] }}
+//           dataSource={data}
+//           modal={
+//             <Modal  
+//               title="Teste"
+//               visible={this.state.visible}
+//               onOk={this.handleOk}
+//             >
+//               Teste
+//             </Modal>
+//           }
+//         />
+//       </>
+//     );
+//   }
+// }
+
+// // import { Component } from 'react';
+// // import { Modal, Button } from 'antd';
+// // import { Link } from 'next/link';
+
+
+// // import { Table, Tag, Radio, Space, Menu, Dropdown, Icon, Button , Modal } from 'antd';
+// // import { Link } from 'next/link';
+
+// // const columns = [
+// //   {
+// //     title: 'Name',
+// //     dataIndex: 'name',
+// //     key: 'name',
+// //     render: text => <a>{text}</a>,
+// //   },
+// //   {
+// //     title: 'Age',
+// //     dataIndex: 'age',
+// //     key: 'age',
+// //   },
+// //   {
+// //     title: 'Address',
+// //     dataIndex: 'address',
+// //     key: 'address',
+// //   },
+// //   {
+// //     title: 'Tags',
+// //     key: 'tags',
+// //     dataIndex: 'tags',
+// //     render: tags => (
+// //       <span>
+// //         {tags.map(tag => {
+// //           let color = tag.length > 5 ? 'geekblue' : 'green';
+// //           if (tag === 'loser') {
+// //             color = 'volcano';
+// //           }
+// //           return (
+// //             <Tag color={color} key={tag}>
+// //               {tag.toUpperCase()}
+// //             </Tag>
+// //           );
+// //         })}
+// //       </span>
+// //     ),
+// //   },
+// //   {
+// //     title: 'Action',
+// //     key: 'action',
+// //     fixed: 'right',
+// //     render: (text, record) => {      
+// //       const menu = (
+// //         <Menu>
+// //           <Menu.Item onClick={ () => onEdit(e) } >
+// //             Ver detalhes
+// //           </Menu.Item>
+// //         </Menu>
+// //       );
+
+// //       return (
+// //         <Dropdown overlay={menu} >
+// //           <Button size="small" >
+// //             Ações
+// //             <Modal>
+// //               Teste
+// //             </Modal>
+// //           </Button>
+// //         </Dropdown>
+// //       )
+// //     },
+// //   },
+// // ];
+
+// // const data = [
+// //   {
+// //     key: '1',
+// //     name: 'John Brown',
+// //     age: 32,
+// //     address: 'New York No. 1 Lake Park',
+// //     tags: ['nice', 'developer'],
+// //   },
+// //   {
+// //     key: '2',
+// //     name: 'Jim Green',
+// //     age: 42,
+// //     address: 'London No. 1 Lake Park',
+// //     tags: ['loser', 'nice', 'dev', ],
+// //   },
+// //   {
+// //     key: '3',
+// //     name: 'Joe Black',
+// //     age: 32,
+// //     address: 'Sidney No. 1 Lake Park',
+// //     tags: ['cool', 'teacher'],
+// //   },
+// // ];
+
+// // export default class App extends Component {
+// //   state = { visible: false };
+
+// //   showModal = () => {
+// //     this.setState({
+// //       visible: true,
+// //     });
+// //   };
+
+// //   handleOk = e => {
+// //     console.log(e);
+// //     this.setState({
+// //       visible: false,
+// //     });
+// //   };
+
+// //   render() {
+// //     return (
+// //       <>
+// //         <Button type="primary" onClick={this.showModal}>
+// //           Open Modal
+// //         </Button>
+// //         <Modal
+// //           title="Detalhes"
+// //           visible={this.state.visible}
+// //           onOk={this.handleOk}
+// //           onCancel={this.handleOk}
+// //         >
+// //           <a href="./posts/first-post" >
+// //             Clica
+// //           </a>
+// //         </Modal>
+// //       </>
+// //     );
+// //   }
+// // }
+
+import { Link } from 'next/link';
+import { Modal, Button } from 'antd';
+
+class App extends React.Component {
+  state = { visible: false };
+
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  handleOk = e => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  };
+
+  handleCancel = e => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  };
+
+  render() {
+    return (
+      <>
+        <Button type="primary" onClick={this.showModal}>
+          Open Modal
+        </Button>
+        <Modal
+          title="Basic Modal"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
         >
-          <Icon style={{ margin: "auto 10px", fontSize: 20 }} type='facebook' />
-          <Icon
-            style={{ margin: "auto 10px", fontSize: 20 }}
-            type='instagram'
-          />
-          <Icon style={{ margin: "auto 10px", fontSize: 20 }} type='google' />
-        </div>
-      </Col>
-    </Row>
-  </Layout>
-);
+          <a href="/post/first-post" >
+            Aqui
+          </a>
+          
+        </Modal>
+      </>
+    );
+  }
+}
+
+export default App;
